@@ -12,7 +12,11 @@ pthread_spin_trylock(pthread_spinlock_t *lcok);
 ```
 和其它的trylock一样，这个函数在无法获取到锁时直接失败返回，而不会spin
 ##释放资源
-如果在初始化自旋锁的时候，分配了其它资源，需要使用pthread_spin_destroy(pthread_spinlock_t *lock)来释放掉这些资源。
+```
+用pthread_spin_destroy(pthread_spinlock_t *lock);
+```
+如果在初始化自旋锁的时候，分配了其它资源，需要使来上面这个函数释放掉这些资源。这个函数执行之后，自旋锁变成了未初始化的状态，对未初始化状态的自旋锁执行操作的结果是未定义的。如果需要再次使用这个自旋锁的话，可以再次执行初始化函数来初始化。
+
 
 #总结
 spin lock在无法获取到锁的时候不会进入睡眠，而是忙等待，直到获取到锁为止。所以一般只用在需要等待很短时间，又不能忍受被重新调试的开销的场合。
