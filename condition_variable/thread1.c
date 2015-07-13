@@ -8,11 +8,16 @@ extern pthread_mutex_t lock;
 
 void *thread1(void *dummy)
 {
-    pthread_mutex_lock(&lock);
-    pthread_cond_wait(&con_var, &lock);
-    pthread_mutex_unlock(&lock);
+    int code;
 
-    printf("thread1 waken up\n");
+    sleep(2); // weait 2s to test
+    pthread_mutex_lock(&lock);
+    code = pthread_cond_signal(&con_var);
+    if (code)
+    {
+        perror("signal");
+    }
+    pthread_mutex_unlock(&lock);
 
     return NULL;
 }
