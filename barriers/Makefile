@@ -2,7 +2,7 @@ CFLAGS = -Wall
 LDFLAGS = -lpthread
 
 target = _main
-srcs = main.c debug.c thread0.c thread1.c
+srcs = main.c thread0.c thread1.c
 objs = $(srcs:.c=.o)
 headers = $(wildcard *.h)
 

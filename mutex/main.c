@@ -1,10 +1,5 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <errno.h>
 #include <pthread.h>
-#include "debug.h"
 
 
 void *thread0(void *cmd);
@@ -38,6 +33,6 @@ int main(void)
     pthread_join(tid0, NULL);
     pthread_join(tid1, NULL);
 
-    exit(0);
+    return 0;
 }
 
