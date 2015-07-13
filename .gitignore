@@ -30,3 +30,6 @@
 
 # Debug files
 *.dSYM/
+
+# executable file
+_main
