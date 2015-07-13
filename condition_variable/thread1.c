@@ -1,4 +1,3 @@
-#include "debug.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
@@ -11,6 +10,7 @@ void *thread1(void *dummy)
 {
     pthread_mutex_lock(&lock);
     pthread_cond_wait(&con_var, &lock);
+    pthread_mutex_unlock(&lock);
 
     printf("thread1 waken up\n");
 

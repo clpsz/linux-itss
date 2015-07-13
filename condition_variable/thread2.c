@@ -1,4 +1,3 @@
-#include "debug.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
