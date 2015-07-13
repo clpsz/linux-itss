@@ -2,8 +2,8 @@
 #include <unistd.h>
 #include <pthread.h>
 
-pthread_cond_t con_var;
-pthread_mutex_t lock;
+extern pthread_cond_t con_var;
+extern pthread_mutex_t lock;
 
 
 void *thread2(void *dummy)
